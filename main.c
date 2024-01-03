@@ -84,9 +84,25 @@ void testDeleteAt(){
   clear(&head);
 }
 
+int _testAt(struct Node* head, int* arr, int len){
+  if(at(head, -1) != NULL)
+    return 0;
 
+  for(int i=0; i<len; i++){
+    if(at(head, i)->data != arr[i])
+      return 0;
+
+  }
+
+  if(at(head, len) != NULL)
+    return 0;
+  
+  return 1;
+}
 
 void testAt(){
+  printf("\n****************** TESTING INDEXING ***************************\n");
+
   struct Node* head = NULL;
 
   if(at(head, 0) == NULL)
@@ -94,18 +110,34 @@ void testAt(){
   else
     printf("Test - 1. Access empty list. Failed\n");
 
-  insertAt(&head, 0, 400);
-  if(at(head, 0)->data == 400)
-    printf("Test - 2. At index = 0. Passed\n");
+  int arr[] = {100, 200, 300, 400};
+  int failed = 0;
+  for(int i=0; i<4; i++){
+    insertAt(&head, i, (i+1)*100);
+    if(_testAt(head, arr, i+1) != 1){
+      failed = 1; 
+      break;
+    }
+  }
+  if(!failed)
+    printf("Test - 2. Index after Insert. Passed\n");
   else
-    printf("Test - 2. At index = 0. Failed\n");
+    printf("Test - 2. Index after Insert. Failed\n");
 
-  insertAt(&head, 0, 300);
-  insertAt(&head, 0, 200);
-  insertAt(&head, 0, 100);
+  failed = 0;
+  for(int i=3; i>=0; i--){
+    deleteAt(&head, i);
+    if(_testAt(head, arr, i) != 1){
+      failed = 1; 
+      break;
+    }
+  }
+ if(!failed)
+    printf("Test - 3. Index after Delete. Passed\n");
+  else
+    printf("Test - 3. Index after Delete. Failed\n");
 
-
-
+  clear(&head);
 }
 
 void runTestCases(){
