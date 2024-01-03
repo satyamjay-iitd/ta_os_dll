@@ -32,12 +32,15 @@ int insertAt(struct Node **head, int idx, void* data){
 
 }
 
+int insertAtInt(struct Node **head, int idx, int data){
+}
+
 // Same as insertAt
 int deleteAt(struct Node **head, int idx){
  
 }
 
-// Optional. For debugging purposes.
+// 99(head), 100, 150, 200(tail)
 void display(struct Node *head){
 
 }
