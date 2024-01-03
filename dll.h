@@ -37,3 +37,8 @@ int deleteAt(struct Node **head, int idx){
  
 }
 
+// Optional. For debugging purposes.
+void display(struct Node *head){
+
+}
+
