@@ -84,8 +84,27 @@ void testDeleteAt(){
   clear(&head);
 }
 
+
+
 void testAt(){
-  
+  struct Node* head = NULL;
+
+  if(at(head, 0) == NULL)
+    printf("Test - 1. Access empty list. Passed\n");
+  else
+    printf("Test - 1. Access empty list. Failed\n");
+
+  insertAt(&head, 0, 400);
+  if(at(head, 0)->data == 400)
+    printf("Test - 2. At index = 0. Passed\n");
+  else
+    printf("Test - 2. At index = 0. Failed\n");
+
+  insertAt(&head, 0, 300);
+  insertAt(&head, 0, 200);
+  insertAt(&head, 0, 100);
+
+
 
 }
 
