@@ -3,7 +3,7 @@
 
 struct Node
 {
-  int data;
+  void* data;
   struct Node *next;
   struct Node *prev;
 };
@@ -28,7 +28,7 @@ struct Node* at(struct Node *head, int idx){
 //  99 -> 100 -> 150 -> 200 -> 201
 //      insertAt(-1, _)
 //  99 -> 100 -> 150 -> 200 -> 201
-int insertAt(struct Node **head, int idx, int data){
+int insertAt(struct Node **head, int idx, void* data){
 
 }
 
